@@ -1,0 +1,49 @@
+group 'com.longhui'
+
+buildscript {
+    ext {
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+jar {
+    baseName = "generic.payment"
+}
+
+repositories {
+    maven {
+        url "http://nexus.xsl.link/content/repositories/releases/"
+    }
+    maven {
+        url "http://nexus.xsl.link/content/repositories/snapshots/"
+    }
+    maven{
+        url "http://nexus.xsl.link/content/repositories/thirdparty/"
+    }
+    jcenter()
+}
+
+
+dependencies {
+    compile "org.apache.commons:commons-lang3:3.4"
+    compile "org.projectlombok:lombok:1.16.10"
+    compile "commons-collections:commons-collections:3.2.2"
+    compile "com.fasterxml.jackson.core:jackson-core:2.8.4"
+    compile group: 'com.google.guava', name: 'guava', version: '11.0.2'
+    compile("org.apache.httpcomponents:fluent-hc:4.5.1")
+    compile("commons-beanutils:commons-beanutils:1.9.3")
+    compile("com.alibaba:fastjson:1.2.34")
+
+    testCompile("junit:junit:4.12")
+
+//    compile("com.alipay:alipay-sdk:1.0.0")
+
+}
+
